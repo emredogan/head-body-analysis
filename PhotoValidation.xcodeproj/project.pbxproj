@@ -8,17 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		633655112A02717200E0CFF7 /* PhotoValidationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633655102A02717200E0CFF7 /* PhotoValidationApp.swift */; };
-		633655132A02717200E0CFF7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633655122A02717200E0CFF7 /* ContentView.swift */; };
+		633655132A02717200E0CFF7 /* PhotoValidateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633655122A02717200E0CFF7 /* PhotoValidateView.swift */; };
 		633655152A02717300E0CFF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 633655142A02717300E0CFF7 /* Assets.xcassets */; };
 		633655182A02717300E0CFF7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 633655172A02717300E0CFF7 /* Preview Assets.xcassets */; };
+		6336551F2A02799B00E0CFF7 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6336551E2A02799B00E0CFF7 /* ImagePicker.swift */; };
+		633655212A027E0500E0CFF7 /* PhotoValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633655202A027E0500E0CFF7 /* PhotoValidator.swift */; };
+		633655232A02969000E0CFF7 /* PhotoValidateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633655222A02969000E0CFF7 /* PhotoValidateViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6336550D2A02717200E0CFF7 /* PhotoValidation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoValidation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		633655102A02717200E0CFF7 /* PhotoValidationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoValidationApp.swift; sourceTree = "<group>"; };
-		633655122A02717200E0CFF7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		633655122A02717200E0CFF7 /* PhotoValidateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoValidateView.swift; sourceTree = "<group>"; };
 		633655142A02717300E0CFF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		633655172A02717300E0CFF7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6336551E2A02799B00E0CFF7 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		633655202A027E0500E0CFF7 /* PhotoValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoValidator.swift; sourceTree = "<group>"; };
+		633655222A02969000E0CFF7 /* PhotoValidateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoValidateViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +58,10 @@
 			isa = PBXGroup;
 			children = (
 				633655102A02717200E0CFF7 /* PhotoValidationApp.swift */,
-				633655122A02717200E0CFF7 /* ContentView.swift */,
+				633655122A02717200E0CFF7 /* PhotoValidateView.swift */,
+				633655222A02969000E0CFF7 /* PhotoValidateViewModel.swift */,
+				6336551E2A02799B00E0CFF7 /* ImagePicker.swift */,
+				633655202A027E0500E0CFF7 /* PhotoValidator.swift */,
 				633655142A02717300E0CFF7 /* Assets.xcassets */,
 				633655162A02717300E0CFF7 /* Preview Content */,
 			);
@@ -137,8 +146,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				633655132A02717200E0CFF7 /* ContentView.swift in Sources */,
+				633655232A02969000E0CFF7 /* PhotoValidateViewModel.swift in Sources */,
+				6336551F2A02799B00E0CFF7 /* ImagePicker.swift in Sources */,
+				633655132A02717200E0CFF7 /* PhotoValidateView.swift in Sources */,
 				633655112A02717200E0CFF7 /* PhotoValidationApp.swift in Sources */,
+				633655212A027E0500E0CFF7 /* PhotoValidator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,9 +279,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PhotoValidation/Preview Content\"";
-				DEVELOPMENT_TEAM = F2CKUUZAW7;
+				DEVELOPMENT_TEAM = MS2G4NWH33;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "For heropack to generate images we need your permission";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -280,7 +293,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = edo.PhotoValidation;
+				PRODUCT_BUNDLE_IDENTIFIER = edo.PhotoValidation.private;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -296,9 +309,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PhotoValidation/Preview Content\"";
-				DEVELOPMENT_TEAM = F2CKUUZAW7;
+				DEVELOPMENT_TEAM = MS2G4NWH33;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "For heropack to generate images we need your permission";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -309,7 +323,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = edo.PhotoValidation;
+				PRODUCT_BUNDLE_IDENTIFIER = edo.PhotoValidation.private;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

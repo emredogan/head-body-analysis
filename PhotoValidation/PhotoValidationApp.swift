@@ -11,7 +11,7 @@ import SwiftUI
 struct PhotoValidationApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            PhotoValidateView()
         }
     }
 }
