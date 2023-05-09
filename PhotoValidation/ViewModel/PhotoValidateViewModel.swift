@@ -15,6 +15,27 @@ class PhotoValidateViewModel: ObservableObject {
 		chosenValidatableImages.append(ValidatableImage(image: image))
 	}
 	
+	func takePicture() {
+		ImagePicker.shared.takePicture { [self] image in
+			if let image = image {
+				let validatableImage = ValidatableImage(image: image)
+				self.chosenValidatableImages.append(validatableImage)
+				validateImages()
+			}
+		}
+	}
+	
+	func pickImage() {
+		ImagePicker.shared.pickImage(selectionLimit: 25) { images,timeInterval  in
+			for image in images {
+				let validatableImage = ValidatableImage(image: image)
+				self.chosenValidatableImages.append(validatableImage)
+			}
+			
+			self.validateImages(passedTime: timeInterval)
+		}
+	}
+	
 	func validateImages(passedTime: TimeInterval = 0.0) {
 		let startTime = DispatchTime.now()
 		print("Start time: \(startTime)")

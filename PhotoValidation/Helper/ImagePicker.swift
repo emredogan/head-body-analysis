@@ -37,9 +37,7 @@ public class ImagePicker {
 		// We only allow images to be picked.
 		configuration.filter = .images
 		configuration.selectionLimit = selectionLimit
-		
-		let startTime = Date().timeIntervalSince1970 // Start the timer here
-		
+				
 		imagePickerDelegate = ImagePickerDelegate(completion: { images, timeInterval in
 			completion(images, timeInterval) // Send the images and total time in the completion handler
 		}, viewController: rootController)

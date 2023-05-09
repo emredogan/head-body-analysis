@@ -88,7 +88,6 @@ public class PhotoValidator {
 		let imageRequestHandler = VNImageRequestHandler(cgImage: cgImage, orientation: .up, options: [:])
 		
 		setupFaceCountRequest(imageRequestHandler, completion)
-		//setupFaceCaptureQualityRequest(imageRequestHandler, completion)
 	}
 	
 }
