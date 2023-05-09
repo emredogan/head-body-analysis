@@ -2,7 +2,6 @@ import UIKit
 import Vision
 import SwiftUI
 
-
 class PhotoValidateViewModel: ObservableObject {
 	@Published var chosenValidatableImages: [ValidatableImage] = []
 	@Published var showAlert = false
@@ -61,32 +60,25 @@ class PhotoValidateViewModel: ObservableObject {
 							let confidence = faceObservations.first!.confidence
 							validatableImage.dataMessage = "Confidence of a face: \(Double(confidence).rounded(toPlaces: 2))"
 							
-							if faceObservations.count == 1 {
-								/// If there is only one face in the image, we do further processing to check the confidence and face capture quality.
-								validator.setupFaceCaptureQualityRequest(VNImageRequestHandler(cgImage: validatableImage.image.cgImage!, orientation: .up, options: [:])) { result in
-									defer {
-										/// For both success and failure cases we want to leave the dispatch queue.
-										print("Leaving dispatch group for image at index for face quality \(index)")
-										dispatchGroup.leave()
-									}
-									switch result {
-										case .success(let faceObservations):
-											if let faceCaptureQuality = faceObservations.first?.faceCaptureQuality {
-												validatableImage.dataMessage += ", Face capture quality: \(Double(faceCaptureQuality).rounded(toPlaces: 2))"
-											}
-										case .failure(let error):
-											/// We need to decide what to do if the capture quality fails.
-											print("An error occurred while getting face capture quality for image at index \(index): \(error.localizedDescription)")
-									}
+							/// If there is only one face in the image, we do further processing to check the confidence and face capture quality.
+							validator.setupFaceCaptureQualityRequest(VNImageRequestHandler(cgImage: validatableImage.image.cgImage!, orientation: .up, options: [:])) { result in
+								defer {
+									/// For both success and failure cases we want to leave the dispatch queue.
+									print("Leaving dispatch group for image at index for face quality \(index)")
+									dispatchGroup.leave()
 								}
-							} else {
-								validatableImage.hasError = true
-								validatableImage.dataMessage = "Error: Too many faces in the image."
-								print("Leaving dispatch group for image at index \(index)")
-								dispatchGroup.leave()
+								switch result {
+									case .success(let faceObservations):
+										if let faceCaptureQuality = faceObservations.first?.faceCaptureQuality {
+											validatableImage.hasError = false
+											validatableImage.dataMessage += ", Face capture quality: \(Double(faceCaptureQuality).rounded(toPlaces: 2))"
+										}
+									case .failure(let error):
+										/// We need to decide what to do if the capture quality fails.
+										validatableImage.hasError = true
+										print("An error occurred while getting face capture quality for image at index \(index): \(error.localizedDescription)")
+								}
 							}
-							
-							validatableImage.hasError = false
 						} else if faceObservations.count > 1{
 							validatableImage.hasError = true
 							validatableImage.dataMessage = "Error: Too many faces in the image."
@@ -104,18 +96,13 @@ class PhotoValidateViewModel: ObservableObject {
 			}
 		}
 		
+		/// Once we finished processing all the images we calculate the total time top p
 		dispatchGroup.notify(queue: .main) {
 			let endTime = DispatchTime.now()
-			print("End time: \(endTime)")
-			
 			let duration = Double(endTime.uptimeNanoseconds - startTime.uptimeNanoseconds) / 1_000_000_000
 			let totalDuration = duration + passedTime
 			
-			print("Duration is \(duration)")
-			print("Passed time is \(passedTime)")
-			
 			self.showAlert = true
-			
 			self.alertMessage = "\(self.chosenValidatableImages.count) images passed validation in \(String(format: "%.2f", totalDuration)) seconds."
 		}
 	}
