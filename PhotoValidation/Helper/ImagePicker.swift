@@ -38,8 +38,8 @@ public class ImagePicker {
 		configuration.filter = .images
 		configuration.selectionLimit = selectionLimit
 				
-		imagePickerDelegate = ImagePickerDelegate(completion: { images, timeInterval in
-			completion(images, timeInterval) // Send the images and total time in the completion handler
+		imagePickerDelegate = ImagePickerDelegate(completion: { images, timeDelayForPickingImages in
+			completion(images, timeDelayForPickingImages) // Send the images and total time in the completion handler
 		}, viewController: rootController)
 		
 		let picker = PHPickerViewController(configuration: configuration)
