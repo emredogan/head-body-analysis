@@ -41,7 +41,7 @@ class PhotoValidateViewModel: ObservableObject {
 		
 		let dispatchGroup = DispatchGroup()
 		
-		for index in 0..<chosenValidatableImages.count {
+	outerLoop: for index in 0..<chosenValidatableImages.count {
 			print("Processing index \(index)")
 			var validatableImage = chosenValidatableImages[index]
 			dispatchGroup.enter()
@@ -57,8 +57,47 @@ class PhotoValidateViewModel: ObservableObject {
 							print("Leaving dispatch group for image at index \(index)")
 							dispatchGroup.leave()
 						} else if faceObservations.count == 1 {
+							let handler = VNImageRequestHandler(ciImage: CIImage(cgImage: validatableImage.image.cgImage!))
+
+							let request = VNClassifyImageRequest()
+							try? handler.perform([request])
+							let results = request.results
+							
+							var count = 0
+							for result in results! {
+								if result.identifier == "sunglasses" && result.confidence > 0.65 {
+									validatableImage.dataMessage = "Please take a photo without sunglasses"
+									validatableImage.hasError = true
+									dispatchGroup.leave()
+									break
+
+								} else if result.identifier == "hat"  && result.confidence > 0.65 {
+									validatableImage.dataMessage = "Please take a photo without a hat"
+									validatableImage.hasError = true
+									print(result.confidence)
+									dispatchGroup.leave()
+									break
+
+								} else if result.identifier == "headphones"  && result.confidence > 0.65 {
+									validatableImage.dataMessage = "Please take a photo without a headphones"
+									validatableImage.hasError = true
+									print(result.confidence)
+									dispatchGroup.leave()
+									break
+								}
+							
+								count += 1
+								if count == 10 {
+									break
+								}
+							}
+							
+							if validatableImage.hasError {
+								break
+							}
+							
 							let confidence = faceObservations.first!.confidence
-							validatableImage.dataMessage = "Confidence of a face: \(Double(confidence).rounded(toPlaces: 2))"
+							validatableImage.dataMessage += "Confidence of a face: \(Double(confidence).rounded(toPlaces: 2))"
 							
 							/// If there is only one face in the image, we do further processing to check the confidence and face capture quality.
 							validator.setupFaceCaptureQualityRequest(VNImageRequestHandler(cgImage: validatableImage.image.cgImage!, orientation: .up, options: [:])) { result in

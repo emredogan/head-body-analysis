@@ -8,7 +8,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "8806A71F-2C3C-45F3-9742-4E2AC13F3608"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PhotoValidation/PhotoValidateView.swift"
@@ -48,6 +48,243 @@
                   startingLineNumber = "32"
                   endingLineNumber = "32"
                   offsetFromSymbolStart = "364">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D6BD125F-2876-4C5B-9857-BE8F3305792F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoValidation/ViewModel/PhotoValidateViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "validateImages(passedTime:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D6BD125F-2876-4C5B-9857-BE8F3305792F - f637c3f7e2fdf668"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;__C.VNFaceObservation&gt;, Swift.Error&gt;) -&gt; () in PhotoValidation.PhotoValidateViewModel.validateImages(passedTime: Swift.Double) -&gt; ()"
+                  moduleName = "PhotoValidation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emredogan/Desktop/test_apps/PhotoValidation/PhotoValidation/ViewModel/PhotoValidateViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "96"
+                  endingLineNumber = "96"
+                  offsetFromSymbolStart = "3768">
+               </Location>
+               <Location
+                  uuid = "D6BD125F-2876-4C5B-9857-BE8F3305792F - f637c3f7e2fdf668"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;__C.VNFaceObservation&gt;, Swift.Error&gt;) -&gt; () in PhotoValidation.PhotoValidateViewModel.validateImages(passedTime: Swift.Double) -&gt; ()"
+                  moduleName = "PhotoValidation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emredogan/Desktop/test_apps/PhotoValidation/PhotoValidation/ViewModel/PhotoValidateViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "96"
+                  endingLineNumber = "96"
+                  offsetFromSymbolStart = "3948">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D9F544F3-07EC-4F18-828C-9E2392AAD4BD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoValidation/ViewModel/PhotoValidateViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "validateImages(passedTime:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D9F544F3-07EC-4F18-828C-9E2392AAD4BD - fe980082b6cc11f4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;__C.VNFaceObservation&gt;, Swift.Error&gt;) -&gt; () in closure #1 (Swift.Result&lt;Swift.Array&lt;__C.VNFaceObservation&gt;, Swift.Error&gt;) -&gt; () in PhotoValidation.PhotoValidateViewModel.validateImages(passedTime: Swift.Double) -&gt; ()"
+                  moduleName = "PhotoValidation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emredogan/Desktop/test_apps/PhotoValidation/PhotoValidation/ViewModel/PhotoValidateViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "208">
+               </Location>
+               <Location
+                  uuid = "D9F544F3-07EC-4F18-828C-9E2392AAD4BD - f637c3f7e2fdf5f5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;__C.VNFaceObservation&gt;, Swift.Error&gt;) -&gt; () in PhotoValidation.PhotoValidateViewModel.validateImages(passedTime: Swift.Double) -&gt; ()"
+                  moduleName = "PhotoValidation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emredogan/Desktop/test_apps/PhotoValidation/PhotoValidation/ViewModel/PhotoValidateViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "2368">
+               </Location>
+               <Location
+                  uuid = "D9F544F3-07EC-4F18-828C-9E2392AAD4BD - f637c3f7e2fdf5f5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;__C.VNFaceObservation&gt;, Swift.Error&gt;) -&gt; () in PhotoValidation.PhotoValidateViewModel.validateImages(passedTime: Swift.Double) -&gt; ()"
+                  moduleName = "PhotoValidation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emredogan/Desktop/test_apps/PhotoValidation/PhotoValidation/ViewModel/PhotoValidateViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "2376">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "741AF9DA-03FC-4B1C-8C42-057C86DA2AE2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoValidation/ViewModel/PhotoValidateViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "validateImages(passedTime:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "741AF9DA-03FC-4B1C-8C42-057C86DA2AE2 - f637c3f7e2fdf4bf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;__C.VNFaceObservation&gt;, Swift.Error&gt;) -&gt; () in PhotoValidation.PhotoValidateViewModel.validateImages(passedTime: Swift.Double) -&gt; ()"
+                  moduleName = "PhotoValidation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emredogan/Desktop/test_apps/PhotoValidation/PhotoValidation/ViewModel/PhotoValidateViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "2964">
+               </Location>
+               <Location
+                  uuid = "741AF9DA-03FC-4B1C-8C42-057C86DA2AE2 - fe980082b6cc1078"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;__C.VNFaceObservation&gt;, Swift.Error&gt;) -&gt; () in closure #1 (Swift.Result&lt;Swift.Array&lt;__C.VNFaceObservation&gt;, Swift.Error&gt;) -&gt; () in PhotoValidation.PhotoValidateViewModel.validateImages(passedTime: Swift.Double) -&gt; ()"
+                  moduleName = "PhotoValidation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emredogan/Desktop/test_apps/PhotoValidation/PhotoValidation/ViewModel/PhotoValidateViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "1068">
+               </Location>
+               <Location
+                  uuid = "741AF9DA-03FC-4B1C-8C42-057C86DA2AE2 - f637c3f7e2fdf4bf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;__C.VNFaceObservation&gt;, Swift.Error&gt;) -&gt; () in PhotoValidation.PhotoValidateViewModel.validateImages(passedTime: Swift.Double) -&gt; ()"
+                  moduleName = "PhotoValidation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emredogan/Desktop/test_apps/PhotoValidation/PhotoValidation/ViewModel/PhotoValidateViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "2816">
+               </Location>
+               <Location
+                  uuid = "741AF9DA-03FC-4B1C-8C42-057C86DA2AE2 - f637c3f7e2fdf4bf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;__C.VNFaceObservation&gt;, Swift.Error&gt;) -&gt; () in PhotoValidation.PhotoValidateViewModel.validateImages(passedTime: Swift.Double) -&gt; ()"
+                  moduleName = "PhotoValidation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emredogan/Desktop/test_apps/PhotoValidation/PhotoValidation/ViewModel/PhotoValidateViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "2832">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1EB3DCBC-093C-4A9B-942F-155683740098"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoValidation/ViewModel/PhotoValidateViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "validateImages(passedTime:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1EB3DCBC-093C-4A9B-942F-155683740098 - 652277acdecbcdf3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "$defer() -&gt; ()"
+                  moduleName = "PhotoValidation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emredogan/Desktop/test_apps/PhotoValidation/PhotoValidation/ViewModel/PhotoValidateViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "420">
+               </Location>
+               <Location
+                  uuid = "1EB3DCBC-093C-4A9B-942F-155683740098 - f637c3f7e2fdf5d4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;__C.VNFaceObservation&gt;, Swift.Error&gt;) -&gt; () in PhotoValidation.PhotoValidateViewModel.validateImages(passedTime: Swift.Double) -&gt; ()"
+                  moduleName = "PhotoValidation"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emredogan/Desktop/test_apps/PhotoValidation/PhotoValidation/ViewModel/PhotoValidateViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "2112">
                </Location>
             </Locations>
          </BreakpointContent>
