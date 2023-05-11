@@ -35,6 +35,18 @@ class PhotoValidateViewModel: ObservableObject {
 		}
 	}
 	
+	func detectSmile(ciImage: CIImage) {
+		
+		let detector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: [CIDetectorAccuracy:CIDetectorAccuracyHigh])
+
+		let options: [String : AnyObject] = [CIDetectorSmile: true as AnyObject, CIDetectorEyeBlink: true as AnyObject]
+		let features = detector?.features(in: ciImage, options: options)
+
+		for feature in features as! [CIFaceFeature] {
+		print("Smile: (\(feature.hasSmile ? "YES" : "NO" ) )")
+		}
+	}
+	
 	func validateImages(passedTime: TimeInterval = 0.0) {
 		let startTime = DispatchTime.now()
 		let validator = PhotoValidator()
@@ -58,6 +70,9 @@ class PhotoValidateViewModel: ObservableObject {
 							dispatchGroup.leave()
 						} else if faceObservations.count == 1 {
 							let handler = VNImageRequestHandler(ciImage: CIImage(cgImage: validatableImage.image.cgImage!))
+							
+							let ciImage = CIImage(cgImage: validatableImage.image.cgImage!)
+							self.detectSmile(ciImage: ciImage)
 
 							let request = VNClassifyImageRequest()
 							try? handler.perform([request])
