@@ -7,6 +7,9 @@ class PhotoValidateViewModel: ObservableObject {
 	@Published var showAlert = false
 	@Published var alertMessage = ""
 	@Published var isValidationDone = false
+	@Published var fullBodyImageExists = false
+	@Published var chestUpBodyImageExists = false
+	@Published var smileExists = false
 	
 	private let validator = PhotoValidator()
 	
@@ -43,8 +46,71 @@ class PhotoValidateViewModel: ObservableObject {
 		let features = detector?.features(in: ciImage, options: options)
 
 		for feature in features as! [CIFaceFeature] {
+			if feature.hasSmile {
+				self.smileExists = true
+			}
 		print("Smile: (\(feature.hasSmile ? "YES" : "NO" ) )")
 		}
+	}
+	
+	func detectBody(requestHandler: VNImageRequestHandler) {
+		// Create a new request to recognize a human body pose.
+		let request = VNDetectHumanBodyPoseRequest(completionHandler: bodyPoseHandler)
+
+		do {
+			// Perform the body pose-detection request.
+			try requestHandler.perform([request])
+		} catch {
+			print("Unable to perform the request: \(error).")
+		}
+	}
+	
+	func bodyPoseHandler(request: VNRequest, error: Error?) {
+		guard let observations =
+				request.results as? [VNHumanBodyPoseObservation] else {
+			return
+		}
+		
+		// Process each observation to find the recognized body pose points.
+		observations.forEach { processObservation($0) }
+	}
+	
+	func processObservation(_ observation: VNHumanBodyPoseObservation) {
+		var headObserved = false
+		var leftFootObserved = false
+		var rightFootObserved = false
+		var hipObserved = false
+		
+		for joint in observation.availableJointNames {
+			guard let point = try? observation.recognizedPoint(joint)  else {
+				return
+			}
+			if joint.rawValue.rawValue == "head_joint" && point.confidence > 0 {
+				headObserved = true
+			}
+			
+			if joint.rawValue.rawValue == "right_foot_joint" && point.confidence > 0 {
+				rightFootObserved = true
+			}
+			
+			if joint.rawValue.rawValue == "right_foot_joint" && point.confidence > 0 {
+				leftFootObserved = true
+			}
+			
+			if joint.rawValue.rawValue == "root" && point.confidence > 0 {
+				hipObserved = true
+			}
+		
+		}
+		
+		if headObserved && leftFootObserved && rightFootObserved {
+			fullBodyImageExists = true
+		}
+		
+		if headObserved && hipObserved && !leftFootObserved && !rightFootObserved {
+			chestUpBodyImageExists = true
+		}
+		
 	}
 	
 	func validateImages(passedTime: TimeInterval = 0.0) {
@@ -73,13 +139,29 @@ class PhotoValidateViewModel: ObservableObject {
 							
 							let ciImage = CIImage(cgImage: validatableImage.image.cgImage!)
 							self.detectSmile(ciImage: ciImage)
+							self.detectBody(requestHandler: handler)
 
 							let request = VNClassifyImageRequest()
 							try? handler.perform([request])
 							let results = request.results
 							
 							var count = 0
+							
 							for result in results! {
+								
+								if result.identifier == "headsets" {
+									print("FOUND")
+									print(result.confidence)
+								}
+								
+								if result.identifier == "airpods" {
+									print("FOUND")
+									print(result.confidence)
+								}
+							}
+							
+							for result in results! {
+								print(result)
 								if result.identifier == "sunglasses" && result.confidence > 0.65 {
 									validatableImage.dataMessage = "Please take a photo without sunglasses"
 									validatableImage.hasError = true
@@ -93,7 +175,7 @@ class PhotoValidateViewModel: ObservableObject {
 									dispatchGroup.leave()
 									break
 
-								} else if result.identifier == "headphones"  && result.confidence > 0.65 {
+								} else if result.identifier == "headphones"  && result.confidence > 0.25 {
 									validatableImage.dataMessage = "Please take a photo without a headphones"
 									validatableImage.hasError = true
 									print(result.confidence)
@@ -102,7 +184,7 @@ class PhotoValidateViewModel: ObservableObject {
 								}
 							
 								count += 1
-								if count == 10 {
+								if count == 20 {
 									break
 								}
 							}
@@ -157,7 +239,7 @@ class PhotoValidateViewModel: ObservableObject {
 			let totalDuration = duration + passedTime
 			
 			self.showAlert = true
-			self.alertMessage = "\(self.chosenValidatableImages.count) images passed validation in \(String(format: "%.2f", totalDuration)) seconds."
+			self.alertMessage = "\(self.chosenValidatableImages.count) images passed validation in \(String(format: "%.2f", totalDuration)) seconds. FULL BODY OBSERVED: \(self.fullBodyImageExists), HALF BODY OBSERVED: \(self.chestUpBodyImageExists) SMILE OBSERVED: \(self.smileExists)"
 		}
 	}
 }
