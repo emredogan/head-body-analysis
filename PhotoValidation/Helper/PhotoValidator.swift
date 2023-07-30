@@ -48,7 +48,6 @@ public class PhotoValidator {
 	
 	private func handleFaceDetectionRequest(request: VNRequest?, error: Error?, completion: @escaping (Result<[VNFaceObservation], PhotoValidatorError>) -> Void) {
 		if let requestError = error as NSError? {
-			print(requestError)
 			completion(.failure(.faceDetectionFailed))
 			return
 		}
@@ -64,7 +63,6 @@ public class PhotoValidator {
 	
 	private func handleFaceCaptureQualityRequest(request: VNRequest?, error: Error?, completion: @escaping (Result<[VNFaceObservation], PhotoValidatorError>) -> Void) {
 		if let requestError = error as NSError? {
-			print(requestError)
 			completion(.failure(.faceDetectionFailed))
 			return
 		}

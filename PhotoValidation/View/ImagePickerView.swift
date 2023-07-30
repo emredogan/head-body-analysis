@@ -10,17 +10,19 @@ import SwiftUI
 struct ImagePickerView: View {
 	let takePictureAction: () -> Void
 	let pickImageAction: () -> Void
+	let clearAction: () -> Void
 	
 	var body: some View {
 		HStack {
 			Button("CAMERA", action: takePictureAction)
 			Button("GALLERY", action: pickImageAction)
+			Button("CLEAR", action: clearAction)
 		}
 	}
 }
 
 struct ImagePickerView_Previews: PreviewProvider {
     static var previews: some View {
-		ImagePickerView(takePictureAction: {}, pickImageAction: {})
+		ImagePickerView(takePictureAction: {}, pickImageAction: {}, clearAction: {})
     }
 }

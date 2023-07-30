@@ -19,6 +19,11 @@ struct PhotoValidateView: View {
 					},
 					pickImageAction: {
 						viewModel.pickImage()
+					}, clearAction: {
+						viewModel.chosenValidatableImages.removeAll()
+						viewModel.smileExists = false
+						viewModel.fullBodyImageExists = false
+						viewModel.chestUpBodyImageExists = false
 					}
 				)
 				
@@ -27,7 +32,7 @@ struct PhotoValidateView: View {
 					viewModel.alertMessage = validatableImage.dataMessage
 				}
 				
-				.navigationTitle("Photo Validate")
+				.navigationTitle("Photo Validate \(viewModel.difference)")
 			}
 			.alert(isPresented: $viewModel.showAlert) {
 				Alert(title: Text("Validation Result"), message: Text(viewModel.alertMessage), dismissButton: .default(Text("OK")))

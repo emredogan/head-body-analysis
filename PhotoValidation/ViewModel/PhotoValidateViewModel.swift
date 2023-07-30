@@ -10,6 +10,7 @@ class PhotoValidateViewModel: ObservableObject {
 	@Published var fullBodyImageExists = false
 	@Published var chestUpBodyImageExists = false
 	@Published var smileExists = false
+	@Published var difference = 0
 	
 	private let validator = PhotoValidator()
 	
@@ -146,19 +147,6 @@ class PhotoValidateViewModel: ObservableObject {
 							let results = request.results
 							
 							var count = 0
-							
-							for result in results! {
-								
-								if result.identifier == "headsets" {
-									print("FOUND")
-									print(result.confidence)
-								}
-								
-								if result.identifier == "airpods" {
-									print("FOUND")
-									print(result.confidence)
-								}
-							}
 							
 							for result in results! {
 								print(result)

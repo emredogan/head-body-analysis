@@ -15,6 +15,7 @@ struct ValidatableImageView: View {
 		Image(uiImage: validatableImage.image)
 			.resizable()
 			.frame(width: 170, height: 170)
+			.scaledToFit()
 			.overlay(!validatableImage.hasError ? Image(systemName: "checkmark.circle.fill").foregroundColor(.green) : Image(systemName: "xmark.octagon.fill").foregroundColor(.red))
 			.onTapGesture(perform: onTapGesture)
 	}
