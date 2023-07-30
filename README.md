@@ -9,6 +9,7 @@ The framework offers a quite range of possibilities, in this project, I have exa
 - Visible body parts in the image. <br />
 
 <div style="display: flex; justify-content: center;">
+  <img src="start.jpeg" alt="Screenshot" width="250">
   <img src="headphones.PNG" alt="Screenshot" width="250">
   <img src="sunglass.PNG" alt="Screenshot" width="250">
   <img src="too-many.PNG" alt="Screenshot" width="250">
